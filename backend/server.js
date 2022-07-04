@@ -6,7 +6,8 @@ const app = express();
 
 const PORT = 5000;
 
-const MONG_URI = "";
+const MONG_URI =
+  "mongodb+srv://MisterShore007:Qazplmvb56123@cluster0.hmcmam5.mongodb.net/?retryWrites=true&w=majority";
 
 // handle CORS
 app.use(function (req, res, next) {
@@ -26,14 +27,12 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use("/api/CarData", repairShop_routes);
 
-
-app.listen(PORT, console.log(`Server is running on PORT -> ${PORT}`));
 // Connect to db
-// mongoose
-//   .connect(MONG_URI)
-//   .then(() => {
-//   })
-//   .catch((err) => console.log(err));
+mongoose
+  .connect(MONG_URI)
+  .then(() => {
+    app.listen(PORT, console.log(`Server is running on PORT -> ${PORT}`));
+  })
+  .catch((err) => console.log(err));
