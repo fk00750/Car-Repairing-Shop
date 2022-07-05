@@ -7,7 +7,7 @@ const app = express();
 const PORT = 5000;
 
 const MONG_URI =
-  "mongodb+srv://MisterShore007:Qazplmvb56123@cluster0.hmcmam5.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://<username>:<password>@cluster0.hmcmam5.mongodb.net/?retryWrites=true&w=majority"; // This URI is working 
 
 // handle CORS
 app.use(function (req, res, next) {
